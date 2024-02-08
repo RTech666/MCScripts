@@ -8,23 +8,23 @@ echo Idea by Ulf, script made by RTech, if you have any issues contact RTech on 
 REM ask the user what version they want
 echo.
 echo Please choose the version you want to play:
-echo 1. Forge 1.20.4
+echo 1. Forge 1.20.1
 echo 2. Forge 1.18.1 (not active)
 Choice /c 12 /m "Enter your choice: "
 if errorlevel 2 goto 1181
-if errorlevel 1 goto 1204
+if errorlevel 1 goto 1201
 
-REM if user chose Forge 1.20.4
-:1204
+REM if user chose Forge 1.20.1
+:1201
 echo.
-echo Selected Forge 1.20.4
+echo Selected Forge 1.20.1
 echo.
 echo What would you like to do?
 echo 1. Setup Forge (Never played on the server before)
 echo 2. Update Mods (Have played on the server before)
 Choice /c 12 /m "Enter your choice: "
-if errorlevel 2 goto up1204
-if errorlevel 1 goto in1204
+if errorlevel 2 goto up1201
+if errorlevel 1 goto in1201
 
 REM if user chose Forge 1.18.1
 :1181
@@ -38,12 +38,12 @@ Choice /c 12 /m "Enter your choice: "
 if errorlevel 2 goto up1181
 if errorlevel 1 goto in1181
 
-REM if user chose to update mods for 1.20.4, run the script below
-:up1204
+REM if user chose to update mods for 1.20.1, run the script below
+:up1201
 mkdir %USERPROFILE%\Desktop\temp
 RD /S /Q "%USERPROFILE%\AppData\Roaming\.minecraft\mods"
 
-powershell.exe Invoke-WebRequest -Uri https://hotboxservers.net/mc/up1204.zip -OutFile "%USERPROFILE%\Desktop\temp\up1204.zip" && (
+powershell.exe Invoke-WebRequest -Uri https://hotboxservers.net/mc/up1201.zip -OutFile "%USERPROFILE%\Desktop\temp\up1201.zip" && (
     echo.
     color 0A
     echo Success!
@@ -56,7 +56,7 @@ powershell.exe Invoke-WebRequest -Uri https://hotboxservers.net/mc/up1204.zip -O
 )
 pause
 
-powershell.exe -c Expand-Archive -Path "%USERPROFILE%\Desktop\temp\up1204.zip" -DestinationPath "%USERPROFILE%\Desktop\temp\RequiredFiles" -Force && (
+powershell.exe -c Expand-Archive -Path "%USERPROFILE%\Desktop\temp\up1201.zip" -DestinationPath "%USERPROFILE%\Desktop\temp\RequiredFiles" -Force && (
     echo.
     color 0A
     echo Success!
@@ -69,7 +69,7 @@ powershell.exe -c Expand-Archive -Path "%USERPROFILE%\Desktop\temp\up1204.zip" -
 )
 pause
 
-powershell.exe -c Expand-Archive -Path "%USERPROFILE%\Desktop\temp\RequiredFiles\mods1204.zip" -DestinationPath "%USERPROFILE%\AppData\Roaming\.minecraft\mods" -Force && (
+powershell.exe -c Expand-Archive -Path "%USERPROFILE%\Desktop\temp\RequiredFiles\mods1201.zip" -DestinationPath "%USERPROFILE%\AppData\Roaming\.minecraft\mods" -Force && (
     echo.
     color 0A
     echo Success!
@@ -96,13 +96,13 @@ RD /S /Q "%USERPROFILE%\Desktop\temp" && (
 pause
 exit
 
-REM is user chose to setup forge for 1.20.4, run the script below
-:in1204
+REM is user chose to setup forge for 1.20.1, run the script below
+:in1201
 mkdir %USERPROFILE%\Desktop\temp
 RD /S /Q "%USERPROFILE%\AppData\Roaming\.minecraft\mods"
 RD /S /Q "%USERPROFILE%\AppData\Roaming\.minecraft\launcher_profiles.json"
 
-powershell.exe Invoke-WebRequest -Uri https://hotboxservers.net/mc/in1204.zip -OutFile "%USERPROFILE%\Desktop\temp\in1204.zip" && (
+powershell.exe Invoke-WebRequest -Uri https://hotboxservers.net/mc/in1201.zip -OutFile "%USERPROFILE%\Desktop\temp\in1201.zip" && (
     echo.
     color 0A
     echo Success!
@@ -115,7 +115,7 @@ powershell.exe Invoke-WebRequest -Uri https://hotboxservers.net/mc/in1204.zip -O
 )
 pause
 
-powershell.exe -c Expand-Archive -Path "%USERPROFILE%\Desktop\temp\in1204.zip" -DestinationPath "%USERPROFILE%\Desktop\temp\RequiredFiles" -Force && (
+powershell.exe -c Expand-Archive -Path "%USERPROFILE%\Desktop\temp\in1201.zip" -DestinationPath "%USERPROFILE%\Desktop\temp\RequiredFiles" -Force && (
     echo.
     color 0A
     echo Success!
@@ -154,7 +154,7 @@ powershell.exe Copy-Item -Path "%USERPROFILE%\Desktop\temp\RequiredFiles\version
 )
 pause
 
-powershell.exe -c Expand-Archive -Path "%USERPROFILE%\Desktop\temp\RequiredFiles\mods1204.zip" -DestinationPath "%USERPROFILE%\AppData\Roaming\.minecraft\mods" -Force && (
+powershell.exe -c Expand-Archive -Path "%USERPROFILE%\Desktop\temp\RequiredFiles\mods1201.zip" -DestinationPath "%USERPROFILE%\AppData\Roaming\.minecraft\mods" -Force && (
     echo.
     color 0A
     echo Success!
